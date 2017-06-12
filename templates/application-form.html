@@ -30,13 +30,17 @@
             <br>
             Salary Requirement* (must be a number): <input type="number" name="salary" required pattern="[0-9|,]+" required>
             <br>
-            Open Positions:
-              <select name="position">
-                <option value="swe">Software Engineer</option>
-                <option value="qae">QA Engineer</option>
-                <option value="pm">Product Manager</option>
-              </select>
-              <br>
+
+              {% if OPEN_JOBS %}
+                Open Positions:
+                <select name="position"> 
+                  {% for open_job in OPEN_JOBS %}
+                    <option value="{{ open_job }}">{{ open_job }}</option>
+                  {% endfor %}
+                </select>
+                <br>
+              {% endif %}
+
             <input type="submit">
             <div class="sub">
               *Required fields
