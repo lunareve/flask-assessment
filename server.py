@@ -19,8 +19,8 @@ def homepage():
 	return render_template("index.html")
 
 
-@app.route('/application-form', methods=["POST"])
-def application-form():
+@app.route('/application-form')
+def application_form():
 	"""Allows user to apply for open jobs."""
 
 	return render_template("application-form.html",
