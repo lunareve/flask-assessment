@@ -1,55 +1,44 @@
-<!doctype html>
-<html>
-<head>
-    <title>Application Form</title>
-    <link rel="stylesheet"
-        href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css"/>
-    <link rel="stylesheet" href="styles.css"/>
-</head>
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <h1>Application Form</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-md-8 col-lg-6">
-        <div class="info">
-          Thank you for your interest in Ubermelon! We have a great company culture and we are excited to share it with you! Please fill out the form below to apply to our company!
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <div class="form">
-          <form action="/application-success" method="POST">
-            First Name*: <input type="text" name="first-name" required pattern="[A-z|-| ]+" required>
-            <br>
-            Last Name*: <input type="text" name="last-name" required pattern="[A-z|-| ]+" required >
-            <br>
-            Salary Requirement* (must be a number): <input type="number" name="salary" required pattern="[0-9|,]+" required>
-            <br>
+{% extends 'base.html' %}
+{% block title %}Ubermelon Application{% endblock %}
 
-              {% if OPEN_JOBS %}
-                Open Positions:
-                <select name="position"> 
-                  {% for open_job in OPEN_JOBS %}
-                    <option value="{{ open_job }}">{{ open_job }}</option>
-                  {% endfor %}
-                </select>
-                <br>
-              {% endif %}
+{% block heading %}Ubermelon Application{% endblock %}
 
-            <input type="submit">
-            <div class="sub">
-              *Required fields
-            </div>
-          </form>
-        </div>
+{% block content %}
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-lg-6">
+      <div class="info">
+        Thank you for your interest in Ubermelon! We have a great company culture and we are excited to share it with you! Please fill out the form below to apply to our company!
       </div>
     </div>
   </div>
 
-</body>
-</html>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <div class="form">
+        <form action="/application-success" method="POST">
+          First Name*: <input type="text" name="first-name" required pattern="[A-z|-| ]+" required>
+          <br>
+          Last Name*: <input type="text" name="last-name" required pattern="[A-z|-| ]+" required >
+          <br>
+          Salary Requirement* (must be a number): <input type="number" name="salary" required pattern="[0-9|,]+" required>
+          <br>
+
+            {% if OPEN_JOBS %}
+              Open Positions:
+              <select name="position">
+                {% for open_job in OPEN_JOBS %}
+                  <option value="{{ open_job }}">{{ open_job }}</option>
+                {% endfor %}
+              </select>
+              <br>
+            {% endif %}
+
+          <input type="submit">
+          <div class="sub">
+            *Required fields
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

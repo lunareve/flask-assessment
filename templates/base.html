@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}TITLE HERE{% endblock %}</title>
+  <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-xs-12 page-title">
+      <h1>{% block heading %}HEADING FOR PAGE{% endblock %}</h1>
+    </div>
+  </div>
+
+  {% block content %}
+    BODY OF PAGE GOES HERE VIA INHERITANCE
+  {% endblock %}
+
+</div>
+
+</body>
+</html>
