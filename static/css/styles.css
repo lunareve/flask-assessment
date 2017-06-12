@@ -1,0 +1,17 @@
+input[type="text"],input[type="submit"] {
+    background-color: yellow;
+}
+
+input[name="last-name"] {
+    font-weight: bold;
+}
+
+div.info {
+    border: 1px dotted black;
+    margin: 1em;
+    padding: 1em;
+}
+
+div.form {
+    line-height: 1.5;
+}
